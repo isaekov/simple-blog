@@ -16,7 +16,7 @@ class Controller
 {
     public Environment $twig;
 
-    private Tools $tools;
+    public Tools $tools;
 
     private array $method;
 
@@ -76,7 +76,7 @@ class Controller
         }
     }
 
-    protected function renderError404(string $template = null, array $var = []): void
+    protected function renderError404(string $template = null, array $var = [])
     {
         try {
             echo $this->twig->render("error/notFound.twig");
@@ -87,6 +87,7 @@ class Controller
 
         } catch (SyntaxError $e) {
         }
+        return exit();
     }
 
     protected function serverError505(string $template = null, array $var = []): void

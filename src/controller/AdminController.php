@@ -22,12 +22,9 @@ class AdminController extends Controller
 
     public function creator()
     {
-
         $data = (new Category())->getAll()->desc("id")->confirm();
         $user = new User();
-
         $set = $user->getOne()->confirm();
-
         $this->render(["data" => $data, "setting" => $set]);
     }
 
@@ -69,13 +66,8 @@ class AdminController extends Controller
     {
         $post = new Post();
         $posts = $post->temporarilyJoin();
-
-
         $this->render(["posts" => $posts]);
     }
-
-
-
 
 
     public function filterGroup()
@@ -85,13 +77,6 @@ class AdminController extends Controller
             echo $this->getRender(["posts" => $posts]);
         }
     }
-//
-//    public function example()
-//    {
-//        $model = new Post();
-//        $a = $model->getOne("post");
-//        $this->render(["name" => $a["content"]]);
-//    }
 
     public function post($id)
     {
@@ -104,29 +89,10 @@ class AdminController extends Controller
         }
     }
 
-    public function edit($id)
-    {
-        $post = new Post();
-        $category = new Category();
-        $meta = new Meta();
-        $user = new User();
-        $post = $post->temporarilyJoinById($id);
-        if (empty($post)) {
-            $this->renderH("error/notfound.twig", ["title" => "404 error"]);
-            return;
-        }
 
-
-//        $metas = $meta->getAll()->where("post_id", $post["id"])->confirm();
-        $set = $user->getOne()->confirm();
-        $categories = $category->getAll()->confirm();
-//        dd($post);
-        $this->render(["post" => $post, "data" => $categories,  "setting" => $set]);
-    }
 
     public function deleteMeta($id, $postId)
     {
-        dd($id . $postId);
         $meta = new Meta();
         $meta->delete($id);
     }

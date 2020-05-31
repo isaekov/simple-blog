@@ -4,6 +4,7 @@ namespace src\controller;
 
 use Carbon\Carbon;
 use Cassandra\Date;
+use kcfinder\text;
 use src\domain\Post;
 use src\domain\ViewsPost;
 use src\entity\Category;
@@ -15,46 +16,48 @@ use System\controller\Controller;
 
 class PostController extends Controller
 {
+
+    /**
+     * @param $id int
+     * Выбор одной статьии
+     */
     public function post($id)
     {
-
-        $views = new ViewsPost();
-        $views->query("UPDATE java.views_post t SET t.views = t.views + 1 WHERE t.post_id = $id");
-        $post = new Post();
-        $post = $post->temporarilyJoinById($id);
-        if (empty($post)) {
-            $this->renderError404();
-            return;
-        }
+        $post = $this->postService->getViewOnePost($id);
+        $post ?: $this->renderError404();
         $post["create_date"] = Carbon::parse($post["create_date"])->isoFormat('ll');
         $this->render(["post" => $post]);
     }
 
+    /**
+     * Вывод рандомных статей
+     */
     public function posts()
     {
-        $postService = new PostService();
         $this->renderH(
             "post/category.twig",
             array_merge(
-                $postService->getStartPage(),
+                $this->postService->getStartPage(),
                 [ "check" => $this->auth->check(),
                 "email" => $this->auth->getEmail()]
             )
         );
     }
 
-    public function category($name, PostService $postService)
+    /**
+     * @param $name text
+     * Выбор по категориям
+     */
+    public function category($name)
     {
-
-//        $category = $postService->getCategoryPage($name);
-//        $category ?: $this->renderError404();
-//        $this->render(["posts" => $category]);
+        $category = $this->postService->getCategoryPage($name);
+        $category ?: $this->renderError404();
+        $this->render(["posts" => $category]);
     }
 
-    private function ip()
+   /* private function ip()
     {
         $ip = new Ip();
-
         $res = $ip->getDb()->query("SELECT * FROM java.ip WHERE ip LIKE '$_SERVER[REMOTE_ADDR]'")->fetch(2);
         if (empty($res)) {
             $ip->query("INSERT INTO java.ip (ip) VALUES ('$_SERVER[REMOTE_ADDR]')");
@@ -83,5 +86,5 @@ class PostController extends Controller
             $like = $like -> getOne() -> where("post_id", $postId) -> confirm();
             echo "$('.fa-thumbs-down').html(" . $like["dis_like"] . ")";
         }
-    }
+    }*/
 }

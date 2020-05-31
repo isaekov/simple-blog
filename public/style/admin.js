@@ -61,9 +61,6 @@ $(document).ready(function () {
 });
 
 
-    // CKEDITOR.replace('editor5', {
-    //     language: 'ru',
-    // });
 
 
 
@@ -103,10 +100,7 @@ $(document).ready(function () {
                 data[this.name] = CKEDITOR.instances.editor1.getData();
                 return;
             }
-            if (this.name === "monolog") {
-                data[this.name] = CKEDITOR.instances.editor2.getData();
-                return;
-            }
+
 
             if (this.name === "image") {
                 data[this.name] = CKEDITOR.instances.editor3.getData();
