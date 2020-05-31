@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>{{ title }}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <meta name="msapplication-TileColor" content="#206bc4"/>
+    <meta name="theme-color" content="#206bc4"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="robots" content="noindex,nofollow,noarchive"/>
+    <link rel="stylesheet" href="/style/node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Londrina+Outline&display=swap"
+          rel="stylesheet">
+    <link href="/style/tabler/dist/css/tabler.min.css" rel="stylesheet"/>
+    <link href="/style/tabler/dist/css/demo.min.css" rel="stylesheet"/>
+    <script src="/style/highlight.min.js?v={{ admin.date }}"></script>
+    <script src="/style/highlightjs-line-numbers.js?v={{ admin.date }}"></script>
+    <script src="/ckeditor/ckeditor.js?v={{ admin.date }}"></script>
+    <script src="/ckeditor/samples/js/sample.js?v={{ admin.date }}"></script>
+    <script src="/style/core.js?v={{ admin.date }}"></script>
+    <link href="/ckeditor/plugins/codesnippet/lib/highlight/styles/sunburst.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/post.css">
+    <link href="/style/style.css" rel="stylesheet" type="text/css">
+    <link href="/style/tabler/dist/css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Londrina+Outline&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Poiret+One&family=Source+Code+Pro:wght@300&display=swap"
+          rel="stylesheet">
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+</head>
+<body class="antialiased">
+<aside class="aside-bar navbar navbar-vertical navbar-expand-lg navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="logo-link" href="/">
+            <h3 style="font-family: 'Cinzel Decorative', cursive; text-align: center;" class="logo-text">
+                HelloWorldRu</h3>
+        </a>
+        <div class="navbar-nav flex-row d-lg-none">
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="navbar-nav pt-lg-3">
+                {% for link in sidebar %}
+                    <li class="nav-item">
+                        <a href="/category/{{ tools.strToLower(link.name) }}" class="link-color">
+                            <p>{{ link.name }}</p>
+                        </a>
+                    </li>
+                {% endfor %}
+
+                {% if check %}
+                    <li class="nav-item">
+                        <a href="/admin/creator" class="link-color" style="color: green"><p>Создать</p></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</aside>
+
+
+<div class="page">
+    <div class="content" style="margin-top: 0rem">
+        <div class="container-xl">
+            {% autoescape false %}
+                {{ content }}
+            {% endautoescape %}
+        </div>
+        <footer class="footer footer-transparent" style="background: black">
+            <div class="container">
+                <div class="row text-center align-items-center flex-row-reverse">
+                    <div class="col-lg-auto ml-lg-auto">
+                    </div>
+                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                        Все права защищены
+                        <a href="/" class="link-secondary">HelloWorldRu</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- Libs JS -->
+
+<script src="/style/node_modules/admin-lte/plugins/jquery/jquery.min.js?v={{ admin.date }}"></script>
+<script src="/style/node_modules/admin-lte/plugins/sweetalert2/sweetalert2.min.js?v={{ admin.date }}"></script>
+<script src="/style/tabler/dist/js/toglek.js?v={{ admin.date }}"></script>
+<script src="/style/node_modules/admin-lte/dist/js/adminlte.min.js?v={{ admin.date }}"></script>
+<script src="/style/tabler/dist/libs/apexcharts/dist/apexcharts.min.js?v={{ admin.date }}"></script>
+<script src="/style/tabler/dist/libs/jqvmap/dist/jquery.vmap.min.js?v={{ admin.date }}"></script>
+<script src="/style/tabler/dist/libs/jqvmap/dist/maps/jquery.vmap.world.js?v={{ admin.date }}"></script>
+<script src="/style/tabler/dist/libs/peity/jquery.peity.min.js?v={{ admin.date }}"></script>
+<!-- Tabler Core -->
+<script src="/style/tabler/dist/js/tabler.min.js?v={{ admin.date }}"></script>
+<script src="/style/admin.js?{{ admin.date }}"></script>
+
+
+<script>
+    document.body.style.display = "block"
+</script>
+</body>
+</html>

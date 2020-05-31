@@ -1,0 +1,106 @@
+<span id="content">
+   <section id="quickForm">
+      <div class="container-fluid">
+         <div class="card ">
+         <div class="card-header bg-white">
+            <h3 class="card-title">Дополнительные настройки</h3>
+         </div>
+         <div class="card-body">
+            <div class="row">
+               <div class="col-3">
+                  <h5 class="mt-4 mb-2">Добавить группу</h5>
+                  <div class="input-group">
+                     <input type="text" id="group-name" value="" name="groupName" class="form-control">
+                     <span class="input-group-append">
+                     <button type="button" id="go" class="btn btn-info btn-flat">Go!</button>
+                     </span>
+                  </div>
+               </div>
+               <div class="col-2">
+                  <h5 class="mt-4 mb-2">Выбрать группу</h5>
+                  <div class="form-group">
+                     <select class="form-control select2" name="category" id="content-admin">
+                        {% for names in data %}
+                            <option value="{{ names.id }}" name="da">{{ names.name }}</option>
+                        {% endfor %}
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="editor2">Краткое описание</label>
+              <textarea name="monolog" class="form-control text-area" id="editor2" rows="10" cols="80"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                       <label for="editor3">Фото</label>
+                       <textarea name="image" class="form-control text-area" id="editor3" rows="10"
+                                 cols="80"></textarea>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card card-green">
+               <div class="card-header">
+                  <h3 class="card-title">Редактор статьи</h3>
+               </div>
+               <form role="form" action="/creator" method="post">
+                  <div class="card-body">
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input type="email" name="title" class="form-control" id="exampleInputEmail1">
+                     </div>
+                     <br>
+                     <span class="meta">
+                           <span class="form-group clone col-md-6">
+                              <div class="row">
+
+                              <div class="col-md-6 ">
+                                 <i class="fa fa-fw fa-plus-circle"></i>
+                                 <label for="exampleInputPassword1">Имя</label>
+
+                                 <textarea type="password" name="name[]" id="exampleInputPassword1"
+                                           class="form-control textarea meta-data"></textarea>
+                              </div>
+                              <div class="col-md-6">
+                                 <br>
+                                 <label for="exampleInputPassword2">Контент</label>
+                                 <textarea type="password" name="content[]" id="exampleInputPassword2"
+                                           class="form-control textarea meta-data"></textarea>
+                              </div>
+                                 </div>
+                           </span>
+                     </span>
+
+                     <div class="form-group">
+                       <label for="editor4">Статья</label>
+
+                <textarea id="editor4" name="content">
+
+				</textarea>
+                     </div>
+                     <br>
+                     <div class="form-group mb-0">
+                        <div>
+                           <label for="check">
+                           <input type="checkbox" name="public"/>
+                           <span class="fake-input"></span>
+                           <span class="fake-label">Опубликовать</span>
+                           </label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card-footer">
+                     <button type="button" id="add-post" class="btn btn-primary">Сохранить</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="col-md-6">
+         </div>
+      </div>
+       </div>
+   </section>
+</span>

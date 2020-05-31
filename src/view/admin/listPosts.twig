@@ -1,0 +1,59 @@
+<p style="border-bottom: #d5d5d5 solid 1px; text-align: center">Изучаем в месте</p>
+{% for post in posts %}
+    {% autoescape false %}
+        <div class="card">
+            <div class="row row-0">
+                <div class="col-3 order-md-last">
+                    <img src="{{ post.image }}" class="w-100 h-100 object-cover" alt="Card side image">
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <div class="card-tools">
+                            <p class="post-info">{{ post.name }}</p>
+                            <a class="btn btn-primary btn-sm right" href="/admin/post/{{ post.post_id }}">
+                                <i class="fas fa-folder">
+                                </i>
+                                Посмотреть
+                            </a>
+                            <a class="btn btn-info btn-sm" href="/admin/edit/{{ post.post_id }}">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Редактировать
+                            </a>
+                        </div>
+
+                        <a href="/post/{{ post.id }}" class="card-title">{{ post.name_post }}</a>
+                        <p class="check">{{ tools.str(post.monolog) }} </p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer bg-white">
+
+
+                <div class="post-info ">
+                    <p>{{ dateI(post.create_date) }}</p>
+                </div>
+
+                <div class="post-info " style="margin-right: 5px">
+                    <p class="fa fa-eye text-right" style="margin-right: 4px"></p>{{ post.views }}
+                </div>
+
+                {#                    <span class="pr-sm-1 pr-lg-2 pr-1" style="border-left: 1px solid grey; height: 20px; "></span>#}
+                {#                    <div class="post-info " style="margin-right: 7px">#}
+                {#                        <p class="fa fa-thumbs-up">123</p>#}
+                {#                    </div>#}
+
+                {#                    <span class="pr-sm-1 pr-lg-2 pr-1" style="border-left: 1px solid grey; height: 20px; "></span>#}
+                {#                    <div class="post-info " style="margin-right: 7px">#}
+                {#                        <p class="fa fa-thumbs-down">123</p>#}
+                {#                    </div>#}
+
+            </div>
+        </div>
+    {% endautoescape %}
+{% endfor %}
+</div>
+
+

@@ -1,0 +1,28 @@
+a {
+    text-decoration: none;
+}
+.logo-text {
+    text-decoration: none;
+    margin-top: 16px;
+    color: #d7fff5;
+    font-size: 22px;
+    line-height: 120%;
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+}
+
+.aside-bar {
+    background: black;
+}
+
+.link-color {
+    color: #d7fff5;
+    font-size: 17px;
+    padding-left: 2rem;
+}
+.link-color:hover {
+    color: #d7fff5;
+    font-size: 18px
+}
+
+

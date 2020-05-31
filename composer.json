@@ -1,0 +1,19 @@
+{
+    "require": {
+        "nikic/fast-route": "^1.3",
+        "php-di/php-di": "^6.0",
+        "twig/twig": "^3.0",
+      "ext-pdo": "*",
+      "ext-json": "*",
+        "delight-im/auth": "^8.1",
+        "nesbot/carbon": "^2.32",
+      "ext-zenddebugger": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/",
+            "System\\": "system/"
+        }
+    }
+}

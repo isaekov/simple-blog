@@ -1,0 +1,30 @@
+<div class="blog-list blog-dyn-list" style="margin-top: 40px">
+    <div class="blog-dyn-items">
+        <div class="blog-dyn-item">
+            <div class="post-wrapper " >
+                    <h3 class="blog-title" style="margin-top: -2rem">{% autoescape false %}{{ post.title }}{% endautoescape %}</h3>
+                <div class="post-info-wrapper">
+                    <div class="post-info">{{ post.create_date }}</div>
+                    <div class="post-info"> | </div>
+                    <a class="post-info when-link" href="#">{{ post.name }}</a>
+                </div>
+                {% autoescape false %}
+                    {{ post.content }}
+                {% endautoescape %}
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="postId" value="{{ post.id }}">
+<div class="button-wrapper">
+    <span class="pr-sm-1 pr-lg-2 pr-1" style=" border-left: 1px solid grey; height: 20px; "></span>
+    <div  class="post-info " style="margin-right: 7px; cursor: pointer;">
+        <h6 id="like" class="fa fa-thumbs-up">{{ post.likes }}</h6>
+    </div>
+    <span class="pr-sm-1 pr-lg-2 pr-1" style="  border-left: 1px solid grey; height: 20px; "></span>
+    <div id="dis_like" class="post-info " style="margin-right: 7px; cursor:pointer;">
+        <h6 class="fa fa-thumbs-down">{{post.dis_like}}</h6>
+    </div>
+    <a class="button blog-button" href="/">More posts</a>
+</div>
+<br>

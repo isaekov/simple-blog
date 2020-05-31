@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Registration Page</title>
+
+    <link rel="stylesheet" href="/style/node_modules/admin-lte/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+    <div class="register-logo">
+        <a href="../../index2.html"><b>HelloWorld</b>RU</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body register-card-body">
+            <h2 class="login-box-msg">Регистрация</h2>
+
+            <form action="/admin/reg123" method="post">
+
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control"  name="email" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row  h-100">
+                    <div class="col-4 ">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.form-box -->
+    </div><!-- /.card -->
+</div>
+
+</body>
+</html>

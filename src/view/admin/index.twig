@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet"
+          href="style/node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/toastr/toastr.min.css">
+
+    <link href="style/style.css" rel="stylesheet" type="text/css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="style/node_modules/admin-lte/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
+
+    <script src="style/ckeditor/ckeditor.js"></script>
+
+    {#    font    #}
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Poiret+One&family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    {% block linkhead %}
+    {% endblock %}
+</head>
+<body class="skin-blue sidebar-mini fixed">
+<div class="wrapper">
+    <style>
+        .post-f {
+            font-size: 12px;
+        }
+    </style>
+
+    <div class="sidebar-column">
+        <div class="navigation-bar div-nav">
+            <div class="blog-container"><a class="logo-link blog-nav-brand" href="#"><h1
+                            class="logo-text">HelloWorld</h1></a>
+                <nav class="navigation-menu blog-nav-menu" role="navigation">
+                    <div class="divider blog-hidden-medium blog-hidden-small blog-hidden-tiny"></div>
+{#                    <a class="nav-link blog-nav-link w--current" href="#" style="max-width: 900px;">Ho sfd daswdme</a>#}
+                    <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu"
+                                        data-accordion="false">
+                                        <li class="nav-item has-treeview">
+                                            <a href="/creator" class="nav-link">
+                                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                                <p>Новый блог</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item has-treeview">
+                                            <a href="/lists" class="nav-link">
+                                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                                <p>Список блогов</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item has-treeview">
+                                            <a href="/creator" class="nav-link">
+                                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                                <p>Не законченые блоги</p>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item has-treeview">
+                                            <a href="/creator" class="nav-link">
+                                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                                <p>Количество посещений</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                    <div class="divider"></div>
+                    <div class="social-link-group">
+                        <a class="social-icon-link blog-inline-block" href="#">
+{#                            <img src="../static/img/facebook.svg" width="25" alt="photo">#}
+                        </a>
+                    </div>
+                </nav>
+                <!--При уменьшенном окне надо показать-->
+                <div class="menu-button blog-nav-button">
+                    <div class="blog-icon-nav-menu"></div>
+                </div>
+            </div>
+            <div class="blog-nav-overlay" data-wf-ignore=""></div>
+        </div>
+    </div>
+        {% block  contentAdmin %}
+        {% endblock %}
+</div>
+
+
+
+
+{% block linkfooter %}
+{% endblock %}
+
+</body>
+</html>

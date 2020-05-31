@@ -1,0 +1,47 @@
+<h2 style="border-bottom: #d5d5d5 solid 1px">{{ posts.0.name }}</h2>
+{% for post in posts %}
+    {% autoescape false %}
+        <div class="card">
+            <div class="row row-0">
+                <div class="col-3 order-md-last">
+                    {{ post.image }}
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <a href="/post/{{ post.id }}"><h3 class="card-title">{{ post.name_post }}</h3></a>
+                        <p>{{ post.monolog }}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer bg-white">
+
+                <div class="col-md-12 ">
+
+                    <div class="post-info ">
+                        <h5>{{ dateI(post.create_date) }}</h5>
+                    </div>
+                    <span class="pr-sm-1 pr-lg-2 pr-1"
+                          style="border-left: 1px solid grey; height: 22px; margin-right: 5px">
+
+                            </span>
+                    <div class="post-info " style="margin-right: 5px">
+                        <h5 class="fa fa-eye text-right">{{ post.views }}</h5>
+                    </div>
+
+                    {#                                                    <span class="pr-sm-1 pr-lg-2 pr-1" style="border-left: 1px solid grey; height: 20px; "></span>#}
+                    {#                                                    <div class="post-info " style="margin-right: 7px">#}
+                    {#                                                        <h6 class="fa fa-thumbs-up">123</h6>#}
+                    {#                                                    </div>#}
+
+                    {#                                                    <span class="pr-sm-1 pr-lg-2 pr-1" style="border-left: 1px solid grey; height: 20px; "></span>#}
+                    {#                                                    <div class="post-info " style="margin-right: 7px">#}
+                    {#                                                        <h6 class="fa fa-thumbs-down">123</h6>#}
+                    {#                                                    </div>#}
+                </div>
+
+            </div>
+        </div>
+    {% endautoescape %}
+{% endfor %}
+</div>

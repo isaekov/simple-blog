@@ -1,0 +1,42 @@
+.bg-body {
+    background: #e914b1;
+    border-radius: 40px;;
+
+}
+
+pre {
+    /*margin-left: -1px;*/
+    background: #000;
+    border-radius: 5px;
+    padding: 0;
+
+
+}
+code {
+    border-radius: 40px;;
+}
+.hljs-ln-numbers {
+    text-align: right;
+    color: #858387;
+    border-right: 1px solid rgba(133, 131, 135, 0.58);
+
+}
+
+.hljs-ln-n {
+    margin-right: 20px;
+}
+
+
+.post-f {
+    font-family: 'Roboto', sans-serif!important;
+    /*font-size: 15px;*/
+    /*line-height: 1.1;*/
+    /*letter-spacing: 0.1em;*/
+}
+
+.check {
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    padding: 5px; /* Поля вокруг текста */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}
