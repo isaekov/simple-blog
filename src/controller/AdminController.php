@@ -51,6 +51,7 @@ class AdminController extends Controller
 
     public function save()
     {
+        var_dump($this->auth->check());
         $service = new AdminService();
         if (isset($_POST["post_id"])) {
             $service->updatePost($_POST);
@@ -89,11 +90,24 @@ class AdminController extends Controller
         }
     }
 
-
-
-    public function deleteMeta($id, $postId)
+    public function edit($id)
     {
+
+        $post = new Post();
+        $category = new Category();
         $meta = new Meta();
-        $meta->delete($id);
+        $user = new User();
+        $post = $post->temporarilyJoinById($id);
+
+        if (empty($post)) {
+            $this->renderH("error/notfound.twig", ["title" => "404 error"]);
+            return;
+        }
+
+
+//        $metas = $meta->getAll()->where("post_id", $post["id"])->confirm();
+        $set = $user->getOne()->confirm();
+        $categories = $category->getAll()->confirm();
+        $this->render(["post" => $post, "data" => $categories,  "setting" => $set]);
     }
 }

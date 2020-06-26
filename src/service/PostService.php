@@ -35,9 +35,7 @@ class PostService
     public function getViewOnePost($id)
     {
         $views = new ViewsPost();
-        $views->query("UPDATE java.views_post t SET t.views = t.views + 1 WHERE t.post_id = $id");
-        $post = new Post();
-        return $post->temporarilyJoinById($id);
-
+        $views->autoIncrement($id);
+        return $views->temporarilyJoinById($id);
     }
 }

@@ -26,7 +26,7 @@ class PostController extends Controller
         $post = $this->postService->getViewOnePost($id);
         $post ?: $this->renderError404();
         $post["create_date"] = Carbon::parse($post["create_date"])->isoFormat('ll');
-        $this->render(["post" => $post]);
+        $this->render(["post" => $post, "title" => $post["title"]]);
     }
 
     /**

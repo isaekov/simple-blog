@@ -94,10 +94,9 @@ $(document).ready(function () {
             }
 
 
-            // console.log(this.name)
-            // console.log(this.value)
-            if (this.name === "namePost") {
-                data[this.name] = CKEDITOR.instances.editor1.getData();
+
+            if (this.name === "monolog") {
+                data[this.name] = this.value;
                 return;
             }
 

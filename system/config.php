@@ -28,7 +28,7 @@ return [
         },
 
     \PDO::class => function() {
-        return new PDO("mysql:host=localhost;dbname=java;charset=utf8", "root", "6", [
+        return new PDO("mysql:host=localhost;dbname=java;charset=utf8", "root", "zxAY38RN", [
             PDO::ATTR_PERSISTENT => true
         ]);
     },

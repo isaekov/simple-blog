@@ -4,6 +4,7 @@
 namespace System\model;
 
 
+use PDOStatement;
 use System\db\Database;
 use System\db\Repository;
 use System\db\SqlCreator;
@@ -63,8 +64,11 @@ abstract class ModelCore extends Database implements Repository
         $sql = "SELECT l.likes, l.dis_like, c.*, p.* FROM java.post AS p
                 LEFT JOIN java.category  AS c ON p.category_id = c.id
                 LEFT JOIN java.assessment AS l ON p.post_id = l.post_id
-                WHERE p.post_id = $id";
-        return $this->pdo->query($sql)->fetch(2);
+                WHERE p.post_id = :id";
+        $prepare = $this->pdo->prepare($sql);
+        $prepare->bindValue(":id", $id, \PDO::PARAM_STR);
+        $prepare->execute();
+        return $prepare->fetch(\PDO::PARAM_STR);
     }
 
     public function getJoinCategory($name)
@@ -72,8 +76,12 @@ abstract class ModelCore extends Database implements Repository
         $sql = "SELECT * FROM java.category 
                 LEFT JOIN java.post ON java.post.category_id = java.category.id
                 LEFT JOIN java.views_post ON java.views_post.post_id = java.post.post_id
-                WHERE java.category.name LIKE '$name'";
-        return $this->pdo->query($sql)->fetchAll(2);
+                WHERE java.category.name LIKE :name";
+        $prepare = $this->pdo->prepare($sql);
+        $prepare->bindValue(":name", $name, \PDO::PARAM_STR);
+        $prepare->execute();
+
+        return $prepare->fetchAll(2);
     }
 
 //    public function temporarilyJoinByIdForUpdatePost($id)
@@ -145,6 +153,16 @@ abstract class ModelCore extends Database implements Repository
     {
         $this->pdo->exec($sql);
     }
+
+
+    public function autoIncrement($id)
+    {
+        $prepare = $this->pdo->prepare("UPDATE views_post t SET t.views = t.views + 1 WHERE t.post_id = :id");
+        $prepare->bindValue(":id", $id, \PDO::PARAM_STR);
+        $prepare->execute();
+    }
+
+
 
     public function getDb()
     {

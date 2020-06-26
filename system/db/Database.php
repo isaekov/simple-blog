@@ -14,7 +14,7 @@ class Database
 
     public function __construct()
     {
-        $this->pdo = new PDO("mysql:host=localhost;dbname=java;charset=utf8", "root", "6");
+        $this->pdo = new PDO("mysql:host=localhost;dbname=java;charset=utf8", "root", "zxAY38RN");
 
         self::$pdoI = $this->pdo;
     }
