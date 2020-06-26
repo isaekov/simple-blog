@@ -24,7 +24,7 @@ class Router
         try {
             self::$container = $builder->build();
             self::$container->set('db',function () {
-                return new \PDO("mysql:host=localhost;dbname=java;charset=utf8", "root", "zxAY38RN");
+                return new \PDO("mysql:host=localhost;dbname=java;charset=utf8", "root", "6");
             });
         } catch (\Exception $e) {
             $e->getCode();
